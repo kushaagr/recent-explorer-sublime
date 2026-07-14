@@ -1,0 +1,11 @@
+[
+    // Double-click to open the file from the dashboard
+    {
+        "button": "button1",
+        "count": 2,
+        "command": "recent_explorer_action",
+        "context": [
+            { "key": "setting.recent_explorer_dashboard", "operator": "equal", "operand": true }
+        ]
+    }
+]

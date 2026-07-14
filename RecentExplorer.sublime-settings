@@ -1,0 +1,25 @@
+{
+    // The sorting algorithm to use on the dashboard.
+    // Options: "created descending", "created ascending", "modified descending", 
+    //          "modified ascending", "alphabetical", "extension"
+    "sort_by": "created descending",
+
+    // Automatically refresh the dashboard tab when files are saved or opened elsewhere
+    "auto_refresh": false,
+
+    // Cap the maximum number of tracked items to prevent performance degradation over time
+    "max_tracked_files_per_project": 512,
+
+    // Folders that the crawler will completely skip over for performance reasons
+    "ignored_dirs": [
+        ".git", ".svn", "node_modules", "__pycache__", 
+        "env", "venv", ".venv", "build", "dist", "target"
+    ],
+
+    // File extensions that will be pulled into your dashboard view
+    "source_extensions": [
+        ".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".md", ".txt", ".html", 
+        ".css", ".scss", ".rs", ".go", ".c", ".cpp", ".h", ".hpp", ".java", 
+        ".kt", ".php", ".rb", ".sh", ".yaml", ".yml", ".ini", ".conf"
+    ]
+}

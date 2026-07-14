@@ -1,0 +1,25 @@
+[
+    {
+        "id": "preferences",
+        "children": [
+            {
+                "id": "package-settings",
+                "children": [
+                    {
+                        "caption": "RecentExplorer",
+                        "children": [
+                            {
+                                "caption": "Settings",
+                                "command": "edit_settings",
+                                "args": {
+                                    "base_file": "${packages}/RecentExplorer/RecentExplorer.sublime-settings",
+                                    "default": "// RecentExplorer Settings - User\n{\n\t$0\n}\n",
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+]

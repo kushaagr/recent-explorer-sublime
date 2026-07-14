@@ -1,0 +1,10 @@
+[
+    // Keyboard Navigation: Press Enter to open the selected file
+    {
+        "keys": ["enter"],
+        "command": "recent_explorer_action",
+        "context": [
+            { "key": "setting.recent_explorer_dashboard", "operator": "equal", "operand": true }
+        ]
+    }
+]

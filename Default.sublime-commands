@@ -1,0 +1,11 @@
+[
+    {
+        "caption": "Recent Explorer: Open Dashboard",
+        "command": "recent_explorer_open_dashboard"
+    },
+    {
+        "caption": "Recent Explorer: Refresh Dashboard",
+        "command": "recent_explorer_open_dashboard",
+        "args": { "refresh_only": true }
+    }
+]
