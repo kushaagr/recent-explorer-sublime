@@ -145,18 +145,50 @@ class RecentExplorerOpenDashboardCommand(sublime_plugin.WindowCommand):
         RecentExplorerOpenDashboardCommand.LINE_MAPS[view.id()] = view_line_map
 
     def sort_items(self, items, sort_by):
+        if not items:
+            return []
+
+        # We use negative numbers (-x) for timestamps to turn an ascending tuple 
+        # sort into a descending (newest first) result.
         if sort_by == "modified descending":
-            return sorted(items, key=lambda x: x[1]["modified"], reverse=True)
+            key_func = lambda x: (
+                -x[1]["modified"],            # Primary (Newest first)
+                -x[1]["created"],             # Secondary (Newest first)
+                x[1]["name"].lower()          # Tertiary (A-Z)
+            )
         elif sort_by == "modified ascending":
-            return sorted(items, key=lambda x: x[1]["modified"])
+            key_func = lambda x: (
+                x[1]["modified"],             # Primary (Oldest first)
+                -x[1]["created"],             # Secondary (Newest first)
+                x[1]["name"].lower()          # Tertiary (A-Z)
+            )
         elif sort_by == "created ascending":
-            return sorted(items, key=lambda x: x[1]["created"])
+            key_func = lambda x: (
+                x[1]["created"],              # Primary (Oldest first)
+                -x[1]["modified"],            # Secondary (Newest first)
+                x[1]["name"].lower()          # Tertiary (A-Z)
+            )
         elif sort_by == "alphabetical":
-            return sorted(items, key=lambda x: x[1]["name"].lower())
+            key_func = lambda x: (
+                x[1]["name"].lower(),         # Primary (A-Z)
+                -x[1]["created"],             # Secondary (Newest first)
+                -x[1]["modified"]             # Tertiary (Newest first)
+            )
         elif sort_by == "extension":
-            return sorted(items, key=lambda x: (x[1]["extension"], x[1]["name"].lower()))
-        else: # "created descending"
-            return sorted(items, key=lambda x: x[1]["created"], reverse=True)
+            key_func = lambda x: (
+                x[1]["extension"],            # Primary (A-Z)
+                -x[1]["created"],             # Secondary (Newest first)
+                -x[1]["modified"],            # Tertiary (Newest first)
+                x[1]["name"].lower()          # Quaternary (A-Z)
+            )
+        else:  # Default: "created descending"
+            key_func = lambda x: (
+                -x[1]["created"],             # Primary (Newest first)
+                -x[1]["modified"],            # Secondary (Newest first)
+                x[1]["name"].lower()          # Tertiary (A-Z)
+            )
+
+        return sorted(items, key=key_func)
 
 
 # --- Helper Text Command for Buffer Injection ---
