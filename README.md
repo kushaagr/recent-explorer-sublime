@@ -53,25 +53,70 @@ For example:
 
 Files are automatically tracked and refreshed on the dashboard whenever changes are written to disk.
 
-## Commands
+## 🚀 Usage
 
-Recent Explorer provides these Sublime Text commands:
+### Opening the Dashboard
 
-* **recent_explorer_open**: Opens the primary project dashboard view.
-* Default keyboard map: **Ctrl + Alt + D** (Example placeholder)
-* Default mouse map: **Double-Click** on an item line to open the file.
+1. Open the Sublime Text Command Palette (`Ctrl+Shift+P` on Windows/Linux, `Cmd+Shift+P` on macOS).
+2. Type **`Recent Explorer: Open Dashboard`** and hit `Enter`.
+3. A scratch tab named `Recent Explorer` will open, displaying your files separated by project root folder.
+
+### Interaction Rules
+
+* **Open File (Keyboard):** Navigate your cursor to any file line using the arrow keys and press `Enter`.
+* **Open File (Mouse):** Double-click directly on the file entry line.
+* **Auto-Refresh:** The dashboard will dynamically regenerate in the background whenever you create a new file or save changes to an existing project document.
+
+---
+
+## ⚙️ Configuration
+You can customize the plugin's crawling filters, truncation limits, and sorting mechanics by navigating to **Preferences > Package Settings > RecentExplorer > Settings**.
+
+Here is the default configuration schema:
+
+```json
+{
+    // The sorting algorithm to use on the dashboard.
+    // Options: "created descending", "created ascending", "modified descending", 
+    //          "modified ascending", "alphabetical", "extension"
+    "sort_by": "created descending",
+
+    // Automatically refresh the dashboard tab when files are saved or created elsewhere
+    "auto_refresh": true,
+
+    // Cap the maximum number of items listed per project folder to maintain scannability
+    "max_tracked_files_per_project": 200,
+
+    // Directory names that the crawler will completely skip over for performance speed
+    "ignored_dirs": [
+        ".git", ".svn", "node_modules", "__pycache__", 
+        "env", "venv", ".venv", "build", "dist", "target"
+    ],
+
+    // File extensions targeted for inclusion in your workspace overview
+    "source_extensions": [
+        ".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".md", ".txt", ".html", 
+        ".css", ".scss", ".rs", ".go", ".c", ".cpp", ".h", ".hpp", ".java", 
+        ".kt", ".php", ".rb", ".sh", ".yaml", ".yml", ".ini", ".conf"
+    ]
+}
+
+```
+
+---
+
+## 🛠️ Sorting Criteria Options
+
+| Setting Parameter | Behavior Description |
+| --- | --- |
+| `"created descending"` | Surfaces the newest files created on your operating system first **(Default)**. |
+| `"created ascending"` | Lists files starting from the oldest creation date. |
+| `"modified descending"` | Prioritizes files you edited and saved most recently. |
+| `"modified ascending"` | Displays project files based on the oldest edit footprint timestamp. |
+| `"alphabetical"` | Lists files using standard alphanumeric A-Z character matching. |
+| `"extension"` | Groups files chronologically by their common formats (`.js`, `.py`, etc.). |
 
 
-* **recent_explorer_refresh**: Manually triggers a re-crawl of the active project tree.
-
-## Settings
-
-Recent Explorer looks for settings in `RecentExplorer.sublime-settings`.
-
-Recent Explorer supports these settings:
-
-* **exclude_patterns**: Defines folder or file patterns (compatible with wildcards) that should be ignored during the project crawl. Example: `"exclude_patterns": ["node_modules", ".git", "__pycache__"]`.
-* **scan_depth**: An integer defining how many directories deep the discovery engine should crawl from the project root. If not defined, it defaults to `3`. Example: `"scan_depth": 5`.
 
 
 ## 💾 Installation
