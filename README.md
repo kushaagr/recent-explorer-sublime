@@ -31,7 +31,6 @@ The dashboard structures your project by repository or root sub-paths, mapping o
 ```text
 ### <repository-name> [<local-path>]
  - [<YYYY-MM-DD HH:MM>] <relative-file-path>
-
 ```
 
 For example:
@@ -47,8 +46,6 @@ For example:
 ## external-api [/Users/username/web/external-api]
   - [2026-07-15 08:12:00] index.js
   - [2026-07-10 18:45:12] package.json
-
-
 ```
 
 Files are automatically tracked and refreshed on the dashboard whenever changes are written to disk.
@@ -100,7 +97,6 @@ Here is the default configuration schema:
         ".kt", ".php", ".rb", ".sh", ".yaml", ".yml", ".ini", ".conf"
     ]
 }
-
 ```
 
 ---
@@ -117,8 +113,6 @@ Here is the default configuration schema:
 | `"extension"` | Groups files chronologically by their common formats (`.js`, `.py`, etc.). |
 
 
-
-
 ## 💾 Installation
 
 ### Manual Installation
@@ -129,8 +123,6 @@ Until this plugin is listed on Package Control, you can install it manually:
 2. Go to **Preferences > Browse Packages...** to open your local packages folder.
 3. Clone this repository directly into that folder:
 ```bash
-git clone https://github.com/YOUR_USERNAME/recent-explorer-sublime.git ProjectDashboard
-
+git clone https://github.com/kushaagr/recent-explorer-sublime.git RecentExplorer
 ```
-
 4. Restart Sublime Text.
