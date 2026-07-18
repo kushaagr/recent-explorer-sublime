@@ -20,6 +20,6 @@
     "source_extensions": [
         ".py", ".js", ".ts", ".jsx", ".tsx", ".json", ".md", ".txt", ".html", 
         ".css", ".scss", ".rs", ".go", ".c", ".cpp", ".h", ".hpp", ".java", 
-        ".kt", ".php", ".rb", ".sh", ".yaml", ".yml", ".ini", ".conf"
+        ".kt", ".php", ".rb", ".sh", ".yaml", ".yml", ".ini", ".conf", ".ahk"
     ]
 }
