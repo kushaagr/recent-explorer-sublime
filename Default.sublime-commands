@@ -7,5 +7,13 @@
         "caption": "Recent Explorer: Refresh Dashboard",
         "command": "recent_explorer_open_dashboard",
         "args": { "refresh_only": true }
+    },
+    {
+        "caption": "Preferences: RecentExplorer Settings",
+        "command": "edit_settings",
+        "args": {
+            "base_file": "${packages}/RecentExplorer/RecentExplorer.sublime-settings",
+            "default": "{\n\t$0\n}\n"
+        }
     }
 ]
