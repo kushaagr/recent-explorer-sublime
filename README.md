@@ -99,6 +99,30 @@ Here is the default configuration schema:
 }
 ```
 
+### Mouse Bindings (Optional)
+
+By default, Package Control discourages plugins from shipping global mousemaps to prevent conflicts with native text selection. If you want to enable mouse double-clicks to open files directly from the dashboard view, you can easily add a custom binding to your User profile:
+
+1. Go to **Preferences > Browse Packages...**
+2. Open the `User` folder.
+3. Create or open a file named `Default.sublime-mousemap`.
+4. Paste the following configuration into the file:
+
+```json
+[
+    // Double-click to open the file from the dashboard
+    {
+        "button": "button1",
+        "count": 2,
+        "command": "recent_explorer_action",
+        "context": [
+            { "key": "setting.recent_explorer_dashboard", "operator": "equal", "operand": true }
+        ]
+    }
+]
+```
+
+
 ---
 
 ## 🛠️ Sorting Criteria Options
